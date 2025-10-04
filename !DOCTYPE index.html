@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feirão da Carne</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(180deg, #ff0000, #ffffff);
+      color: #222;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: #b30000;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 1.8em;
+      font-weight: bold;
+    }
+
+    /* Tela de login */
+    #login-screen {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(180deg, #ff0000, #ffffff);
+    }
+
+    #login-screen input {
+      margin: 10px;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      width: 80%;
+      max-width: 300px;
+      font-size: 1em;
+    }
+
+    #loginBtn {
+      background-color: #b30000;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-size: 1.1em;
+      cursor: pointer;
+    }
+
+    #loginBtn:hover {
+      background-color: #ff3333;
+    }
+
+    /* Tela principal */
+    #app-screen {
+      display: none;
+    }
+
+    .banner {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .produtos {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 20px;
+      width: 180px;
+      margin: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      text-align: center;
+      padding: 10px;
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .foto-produto {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 15px;
+    }
+
+    .card h2 {
+      color: #b30000;
+      font-size: 1.1em;
+      margin: 10px 0 5px 0;
+    }
+
+    .card p {
+      font-size: 1em;
+      margin-bottom: 10px;
+    }
+
+    .botao {
+      background-color: #b30000;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .botao:hover {
+      background-color: #ff3333;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- TELA DE LOGIN -->
+  <div id="login-screen">
+    <h1 style="color:white; margin-bottom:20px;">Feirão da Carne</h1>
+    <input type="text" id="nome" placeholder="Seu nome">
+    <input type="tel" id="numero" placeholder="Seu número de WhatsApp">
+    <button id="loginBtn">Entrar</button>
+  </div>
+
+  <!-- TELA PRINCIPAL -->
+  <div id="app-screen">
+    <header>🥩 Feirão da Carne 🥩</header>
+
+    <!-- Banner -->
+    <img src="feirao_da_carne.png" alt="Banner Feirão da Carne" class="banner">
+
+    <!-- Produtos -->
+    <section class="produtos">
+      <div class="card">
+        <img src="PICANHA.png" alt="Picanha" class="foto-produto">
+        <h2>Picanha</h2>
+        <p>R$ 50,99 / Kg</p>
+        <button class="botao" onclick="enviarWhatsApp('Picanha', '45,99')">Peça Aqui</button>
+      </div>
+
+      <div class="card">
+        <img src="costela.png" alt="Costela" class="foto-produto">
+        <h2>Costela</h2>
+        <p>R$ 29,99 / Kg</p>
+        <button class="botao" onclick="enviarWhatsApp('Costela', '29,99')">Peça Aqui</button>
+      </div>
+
+      <div class="card">
+        <img src="peito_bovino.jpg" alt="Peito Bovino" class="foto-produto">
+        <h2>Peito Bovino</h2>
+        <p>R$ 26,99 / Kg</p>
+        <button class="botao" onclick="enviarWhatsApp('Peito Bovino', '26,99')">Peça Aqui</button>
+      </div>
+
+      <div class="card">
+        <img src="peito_de_frango.jpg" alt="Peito de Frango" class="foto-produto">
+        <h2>Peito de Frango</h2>
+        <p>R$ 20,99 / Kg</p>
+        <button class="botao" onclick="enviarWhatsApp('Peito de Frango', '20,99')">Peça Aqui</button>
+      </div>
+
+      <div class="card">
+        <img src="carne_moida.webp" alt="Carne Moída" class="foto-produto">
+        <h2>Carne Moída de Primeira</h2>
+        <p>R$ 30,99 / Kg</p>
+        <button class="botao" onclick="enviarWhatsApp('Carne Moída de Primeira', '30,99')">Peça Aqui</button>
+      </div>
+
+      <div class="card">
+        <img src="ossada.jpg" alt="Ossada" class="foto-produto">
+        <h2>Ossada</h2>
+        <p>R$ 6,99 / Pacote</p>
+        <button class="botao" onclick="enviarWhatsApp('Ossada', '6,99')">Peça Aqui</button>
+      </div>
+
+      <div class="card">
+        <img src="bisteca.jpg" alt="Bisteca Bovina" class="foto-produto">
+        <h2>Bisteca Bovina</h2>
+        <p>R$ 35,99 / Kg</p>
+        <button class="botao" onclick="enviarWhatsApp('Bisteca Bovina', '35,99')">Peça Aqui</button>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const loginScreen = document.getElementById('login-screen');
+    const appScreen = document.getElementById('app-screen');
+    const loginBtn = document.getElementById('loginBtn');
+
+    let nomeCliente = "";
+    let numeroCliente = "";
+
+    loginBtn.addEventListener('click', () => {
+      nomeCliente = document.getElementById('nome').value.trim();
+      numeroCliente = document.getElementById('numero').value.trim();
+
+      if (nomeCliente && numeroCliente) {
+        loginScreen.style.display = 'none';
+        appScreen.style.display = 'block';
+      } else {
+        alert('Por favor, preencha seu nome e número de WhatsApp.');
+      }
+    });
+
+    function enviarWhatsApp(produto, preco) {
+      const numeroLoja = "98981919706"; // número do WhatsApp da loja
+      const mensagem = `Olá, sou ${nomeCliente}. Gostaria de pedir ${produto} que está R$ ${preco} o Kg.`;
+      const url = `https://wa.me/55${numeroLoja}?text=${encodeURIComponent(mensagem)}`;
+      window.open(url, "_blank");
+    }
+  </script>
+
+</body>
+</html>
